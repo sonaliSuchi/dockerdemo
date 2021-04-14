@@ -1,4 +1,4 @@
-FROM java:8
+FROM openjdk:latest
 Expose 8085
 
 ADD docker-demo/target/docker-demo.jar docker-demo.jar
