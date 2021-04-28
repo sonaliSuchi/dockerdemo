@@ -1,6 +1,15 @@
+FROM maven:3.6.0-jdk-11-slim AS build
+
+COPY src src
+COPY pom.xml .
+RUN mvn -f pom.xml clean package install
+
 FROM openjdk:latest
 Expose 8085
 
-ADD docker-demo/src/deployer/docker-demo.jar docker-demo.jar
+COPY --from=build /target /opt/target
+WORKDIR /target
 
-ENTRYPOINT ["java","-jar","docker-demo.jar"]
+RUN ls
+
+CMD ["java", "-jar", "docker-demo.jar"]
