@@ -7,9 +7,9 @@ RUN mvn -f pom.xml clean package install
 FROM openjdk:latest
 Expose 8085
 
-COPY --from=build /target/docker-demo.jar docker-demo.jar
-WORKDIR /target
+ADD /target/docker-demo.jar docker-demo.jar
+
 
 RUN ls
 
-CMD ["java", "-jar", "docker-demo-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "docker-demo.jar"]
