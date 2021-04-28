@@ -17,6 +17,6 @@ public class SayHello {
 	
 		String hello="test";
 		hello=env.getProperty("hello.test");
-		return "Hi!! Your openshift Deployment is successfull - Created - "+hello;
+		return "Hi!! Your Docker Build pipeline created- "+hello;
 	}
 }
