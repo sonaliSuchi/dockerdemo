@@ -7,9 +7,9 @@ RUN mvn -f pom.xml clean package install
 FROM openjdk:latest
 Expose 8085
 
-ADD /target/docker-demo.jar docker-demo.jar
+ADD /root/.m2/repository/com/miishhift/docker-demo/0.0.1-SNAPSHOT/docker-demo-0.0.1-SNAPSHOT.jar docker-demo-0.0.1-SNAPSHOT.jar
 
 
 RUN ls
 
-CMD ["java", "-jar", "docker-demo.jar"]
+CMD ["java", "-jar", "docker-demo-0.0.1-SNAPSHOT.jar"]
