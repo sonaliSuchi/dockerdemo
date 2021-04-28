@@ -12,4 +12,4 @@ WORKDIR /target
 
 RUN ls
 
-CMD ["java", "-jar", "docker-demo.jar"]
+CMD ["java", "-jar", "docker-demo-0.0.1-SNAPSHOT.jar"]
